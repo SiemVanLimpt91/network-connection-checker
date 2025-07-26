@@ -142,8 +142,6 @@ if address:
                         icon=folium.Icon(color="red")
                     ).add_to(m)
 
-                    st_folium(m, width=700, height=500)
-
                     try:
                         demand_api = (
                             "https://ukpowernetworks.opendatasoft.com/api/records/1.0/search/"
@@ -224,5 +222,8 @@ if address:
                 st.warning("No records found in the vicinity. Please try a different address or expand the search radius.")
         except Exception as e:
             st.error(f"Could not load UK Power Networks data: {e}")
+
+        st_folium(m, width=700, height=500)
+        
     else:
         st.error("Address not found. Try a more specific one.")
